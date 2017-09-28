@@ -7,4 +7,4 @@ https://dadosabertos.camara.leg.br/swagger/api.html
 
 ## Live server:
 
-https://dados-abertos-graphql-nywwhmskzu.now.sh/graphql
+https://dados-abertos-graphql-nnrxgngjqe.now.sh/graphql
