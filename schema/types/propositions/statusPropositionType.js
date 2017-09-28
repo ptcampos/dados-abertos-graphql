@@ -1,3 +1,5 @@
+const { ENDPOINT_API } = require('../../../config/config.json')
+const axios = require('axios')
 const moment = require('moment')
 const {
   GraphQLObjectType,
@@ -45,6 +47,16 @@ module.exports = new GraphQLObjectType({
     idSituacao: {
       type: GraphQLInt,
       resolve: data => data.idSituacao
+    },
+    situacaoCompleta: {
+      type: GraphQLString,
+      resolve: data => {
+        const idSituacao = data.idSituacao
+        return axios.get(`${ENDPOINT_API}/referencias/situacoesProposicao`)
+          .then(response => response.data.dados)
+          .then(dados => dados.find(d => parseInt(d.id, 10) === parseInt(idSituacao, 10)))
+          .then(situacaoCompleta => situacaoCompleta ? situacaoCompleta.nome : 'N/A')
+      }
     },
     despacho: {
       type: GraphQLString,

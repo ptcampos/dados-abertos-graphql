@@ -8,7 +8,7 @@ const {
 const StatusPropositionType = require('./statusPropositionType')
 
 module.exports = new GraphQLObjectType({
-  name: 'Proposicao',
+  name: 'ProposicaoCompleta',
   description: '...',
 
   fields: () => ({
@@ -55,6 +55,58 @@ module.exports = new GraphQLObjectType({
     statusProposicao: {
       type: StatusPropositionType,
       resolve: data => data.statusProposicao
+    },
+    tipoAutor: {
+      type: GraphQLString,
+      resolve: data => data.tipoAutor
+    },
+    idTipoAutor: {
+      type: GraphQLInt,
+      resolve: data => data.idTipoAutor
+    },
+    uriAutores: {
+      type: GraphQLString,
+      resolve: data => data.uriAutores
+    },
+    descricaoTipo: {
+      type: GraphQLString,
+      resolve: data => data.descricaoTipo
+    },
+    ementaDetalhada: {
+      type: GraphQLString,
+      resolve: data => data.ementaDetalhada
+    },
+    keywords: {
+      type: GraphQLString,
+      resolve: data => data.keywords
+    },
+    uriPropPrincipal: {
+      type: GraphQLString,
+      resolve: data => data.uriPropPrincipal
+    },
+    uriPropAnterior: {
+      type: GraphQLString,
+      resolve: data => data.uriPropAnterior
+    },
+    uriPropPosterior: {
+      type: GraphQLString,
+      resolve: data => data.uriPropPosterior
+    },
+    urlInteiroTeor: {
+      type: GraphQLString,
+      resolve: data => data.urlInteiroTeor
+    },
+    urnFinal: {
+      type: GraphQLString,
+      resolve: data => data.urnFinal
+    },
+    texto: {
+      type: GraphQLString,
+      resolve: data => data.texto
+    },
+    justificativa: {
+      type: GraphQLString,
+      resolve: data => data.justificativa
     }
   })
 })
